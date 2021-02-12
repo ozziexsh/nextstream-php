@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Nextstream;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
-use Laravel\Jetstream\Jetstream;
+use Ozzie\Nextstream\Nextstream;
 
 class ListUserApiTokenController extends Controller
 {
@@ -18,8 +18,8 @@ class ListUserApiTokenController extends Controller
     {
         return response()->json([
             'tokens' => $request->user()->tokens,
-            'availablePermissions' => Jetstream::$permissions,
-            'defaultPermissions' => Jetstream::$defaultPermissions,
+            'availablePermissions' => Nextstream::$permissions,
+            'defaultPermissions' => Nextstream::$defaultPermissions,
         ]);
     }
 }

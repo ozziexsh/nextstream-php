@@ -23,7 +23,9 @@ class DeleteCurrentUserController extends Controller
             'password' => 'password',
         ]);
 
-        app(DeletesUsers::class)->delete($request->user()->fresh());
+        $user->deleteProfilePhoto();
+        $user->tokens->each->delete();
+        $user->delete();
 
         $auth->logout();
 

@@ -22,8 +22,6 @@ class UpdateProfileInformationController extends Controller
     ) {
         $updater->update($request->user(), $request->all());
 
-        return $request->wantsJson()
-            ? new JsonResponse('', 200)
-            : back()->with('status', 'profile-information-updated');
+        return new JsonResponse('', 200);
     }
 }

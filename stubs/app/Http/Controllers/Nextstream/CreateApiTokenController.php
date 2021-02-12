@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Nextstream;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
-use Laravel\Jetstream\Jetstream;
+use Ozzie\Nextstream\Nextstream;
 
 class CreateApiTokenController extends Controller
 {
@@ -22,7 +22,7 @@ class CreateApiTokenController extends Controller
 
         $token = $request->user()->createToken(
             $request->name,
-            Jetstream::validPermissions($request->input('permissions', []))
+            Nextstream::validPermissions($request->input('permissions', []))
         );
 
         return response()->json([

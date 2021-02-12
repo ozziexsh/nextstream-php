@@ -1,10 +1,10 @@
 {
   "name": "ozzie/nextstream",
   "description": "Adds support for Next.js into Laravel Jetstream",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "require": {
     "illuminate/support": "^8.26",
-    "laravel/jetstream": "^2.1"
+    "laravel/fortify": "^1.6.1"
   },
   "extra": {
     "laravel": {
