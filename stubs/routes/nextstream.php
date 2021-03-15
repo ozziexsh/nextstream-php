@@ -24,9 +24,13 @@ Route::group(['middleware' => ['web']], function () {
       Route::put('api-tokens/{tokenId}', Controllers\Nextstream\UpdateApiTokenController::class);
       Route::delete('api-tokens/{tokenId}', Controllers\Nextstream\DeleteApiTokenController::class);
     }
+
+    if (Fortify\Features::canManageTwoFactorAuthentication()) {
+      Route::get('user/two-factor-status', Controllers\Nextstream\TwoFactorStatusController::class);
+    }
   });
 
-  Route::get('features', function (Request $request) {
+  Route::get('features', function () {
     return [
       'hasProfilePhotoFeatures' => Nextstream\Features::hasProfilePhotoFeatures(),
       'hasApiFeatures' => Nextstream\Features::hasApiFeatures(),
